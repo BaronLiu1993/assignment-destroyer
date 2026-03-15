@@ -1,10 +1,17 @@
 .PHONY: setup dev down
 
+PYTHON := python3
+VENV := venv
+PIP := $(VENV)/bin/pip
+UVICORN := $(VENV)/bin/uvicorn
+
 setup:
 	docker compose up -d
-	pip install -r requirements.txt
+	$(PYTHON) -m venv $(VENV)
+	$(PIP) install -r requirements.txt
 
 dev:
-	uvicorn main:app --reload
+	$(UVICORN) main:app --reload
+
 down:
 	docker compose down
