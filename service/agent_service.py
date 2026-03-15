@@ -1,9 +1,17 @@
 from pinecone import Pinecone
+from pymongo import MongoClient
+from dotenv import load_dotenv
 import re
+import os
+
+load_dotenv()
 
 # Initialise Pinecone client and point to index
-pc = Pinecone(api_key="")
+pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = pc.Index("quickstart")
+
+# Initialise MongoDB client and point to database and collection
+client = MongoClient(uri=os.getenv("MONGODB_URI"))
 
 def clean_text(text):
     if not text:
