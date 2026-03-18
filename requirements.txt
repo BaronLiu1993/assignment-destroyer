@@ -2,3 +2,6 @@ fastapi
 uvicorn[standard]
 anthropic
 python-dotenv
+pymongo
+boto3
+python-multipart

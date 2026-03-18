@@ -5,7 +5,7 @@ FastAPI backend for an AI-powered writing assistant Chrome extension. Uses Claud
 ## Setup
 
 ```bash
-make setup   # start MongoDB + install dependencies
+make setup   # start MongoDB + MinIO + install dependencies
 make dev     # run server at http://localhost:8000
 make down    # stop MongoDB
 ```

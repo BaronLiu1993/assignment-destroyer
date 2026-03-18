@@ -1,9 +1,10 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-import anthropic
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from router.agent_router import router as agent_router
 
 app = FastAPI()
 
@@ -14,8 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = anthropic.Anthropic()
-
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
